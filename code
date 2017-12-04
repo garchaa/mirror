@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <title>Mirror</title>
+    <style>
+        @import url('http://fonts.googleapis.com/css?family=Space+Mono|Open+Sans');
+        body {
+            background-color: black;
+            font-family: "Space Mono", monospace;
+            color: white;
+            margin: 0px;
+            text-align: center;
+        }
+        
+        h1 {
+            line-height: 0px;
+            font-size: 100px;
+        }
+        
+        h4 {
+            position: fixed;
+            top: 90%;
+            width: 100%;
+            height: 20%;
+        }
+        
+        #main {
+            width: 100%;
+            height: 80%;
+        }
+        
+        .break {
+            height: 35vh;
+            width: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="break"></div>
+    <div id="main">
+        <h1><span id="hrs">00</span>:<span id="min">00</span> <span id="am-pm">PM</span></h1>
+        <h2>Good <span id="greeting">Morning</span>, Peter!</h2>
+    </div>
+    <h4>Lookin' Good!</h4>
+
+
+    <script>
+        var d = new Date();
+        document.getElementById("min").innerHTML = d.getMinutes();
+        if (d.getHours() = 12) {
+            document.getElementById("am-pm").innerHTML = "PM";
+        } else if (d.getHours() > 12) {
+            document.getElementById("hrs").innerHTML = d.getHours() - 12;
+            document.getElementById("am-pm").innerHTML = "PM";
+            if (d.getHours() < 22) {
+                document.getElementById("hrs").innerHTML = d.getHours() - 12;
+            }
+        } else {
+            document.getElementById("hrs").innerHTML = d.getHours();
+            document.getElementById("am-pm").innerHTML = "AM";
+        }
+
+
+
+        if (d.getHours() > 20) {
+            document.getElementById("greeting").innerHTML = "Night";
+        } else if (d.getHours() > 17) {
+            document.getElementById("greeting").innerHTML = "Evening";
+        } else if (d.getHours() >= 12) {
+            document.getElementById("greeting").innerHTML = "Afternoon";
+        } else {
+            document.getElementById("greeting").innerHTML = "Morning";
+        }
+
+        if (d.getMinutes() < 10) {
+            document.getElementById("min").innerHTML = "0" + d.getMinutes();
+        }
+
+    </script>
+</body>
+
+</html>
